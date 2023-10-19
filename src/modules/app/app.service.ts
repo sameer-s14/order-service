@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  checkHealth(): string {
+  constructor() {}
+  async checkHealth(): Promise<string> {
     return '🚀 ~ Order service running fine !';
   }
 }
