@@ -5,9 +5,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app/app.controller';
 import { AppService } from './app/app.service';
 import { KnexModule } from 'nest-knexjs';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { knexConfigFactory } from 'src/database/db.configuration';
-
+import { ConfigModule } from '@nestjs/config';
+import { databaseConfigProvider } from 'src/database';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,11 +17,7 @@ import { knexConfigFactory } from 'src/database/db.configuration';
       playground: true,
       typePaths: ['./**/*.graphql'],
     }),
-    KnexModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: knexConfigFactory,
-      inject: [ConfigService],
-    }),
+    KnexModule.forRootAsync(databaseConfigProvider),
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],

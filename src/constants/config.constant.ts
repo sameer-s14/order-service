@@ -9,3 +9,8 @@ export const ENV_VARIABLES = {
   },
   APP_PORT: 'PORT',
 };
+
+export enum NODE_ENV {
+  DEVELOPMENT = 'development',
+  PRODUCTION = 'production',
+}

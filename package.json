@@ -17,7 +17,10 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migration": "knex migrate:up --knexfile=db.config.ts",
+    "migration:create": "knex migrate:make $npm_config_name -x ts --knexfile=db.config.ts",
+    "migration:down": "knex migrate:down --knexfile=db.config.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.9.4",
