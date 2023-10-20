@@ -1,7 +1,8 @@
-type Response {
+type checkHealthResponse {
  message: String!
+ status: Boolean!
 }
 
 type Query {
-    checkHealth: Response
+    checkHealth: checkHealthResponse
 }

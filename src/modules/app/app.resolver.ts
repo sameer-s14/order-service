@@ -5,7 +5,8 @@ export class AppResolver {
   @Query('checkHealth')
   checkHealth() {
     return {
-      message: '🚀 ~ Order service running fine!',
+      message: 'orderService',
+      status: true,
     };
   }
 }
